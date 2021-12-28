@@ -1,5 +1,5 @@
 import { Component } from "react/cjs/react.production.min";
-import { Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Chips from "./Chips";
 import Sardines from "./Sardines";
@@ -9,11 +9,15 @@ import VendingMachine from "./VendingMachine";
 class App extends Component {
     render() {
         return (
-            <div className="App">
-                <Route exact path="/" render={() => <VendingMachine />} />
-                <Route exact path="/soda" render={() => <Soda />} />
-                <Route exact path="/sardines" render={() => <Sardines />} />
-                <Route exact path="/chips" render={() => <Chips />} />
+            <div>
+                <main>
+                    <Routes>
+                        <Route path="/" element={<VendingMachine />} />
+                        <Route path="/chips" element={<Chips />} />
+                        <Route path="/sardines" element={<Sardines />} />
+                        <Route path="/soda" element={<Soda />} />
+                    </Routes>
+                </main>
             </div>
         );
     }
